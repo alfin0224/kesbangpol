@@ -1,0 +1,34 @@
+		<!-- berita -->
+		<div id="visimisi" class="service" style="padding-top: 100px;">
+			<div class="container-fluid" style="width:90%">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="titlepage" style="padding-bottom: 20px;">
+							<h2 style="width: 200px;">Berita</h2>
+							<!-- filter berita -->
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<?php foreach($berita as $b) : ?>
+						<div class="col-md-3 col-sm-6">
+							<div class="card">
+								<div class="text-center">
+									<img src="<?= base_url('assets/img/berita/'); echo $b->judul_gambar; ?>" class="card-img-top image"
+										alt="thumbnail">
+								</div>
+								<div class="card-body">
+      								<h3 class="card-title text-center"><a href="<?= base_url('berita/detail/'); echo encrypt_url($b->id_berita); ?>"><?php echo $b->judul; ?></a></h3>
+									<p class="card-text text-justify mb-2" style="font-size:15px;"><?php echo substr($b->isi_berita,147, 170); echo ' . . . '; ?></p>
+									<a href="<?= base_url('berita/detail/'); echo encrypt_url($b->id_berita); ?>" class="btn btn-warning">Lanjut baca ...</a>
+      							</div>
+							</div>
+						</div>
+					<?php endforeach ?>
+				</div>
+			<?php echo $this->pagination->create_links(); ?>
+
+			</div>
+		</div>
+		<!-- end berita -->
